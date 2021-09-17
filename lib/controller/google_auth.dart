@@ -62,6 +62,5 @@ void signInWithGoogle(BuildContext context) async {
   } catch (PlatformException) {
     print(PlatformException);
     print("Sign in not successful !");
-    // better show an alert here
   }
 }

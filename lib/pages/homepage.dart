@@ -1,11 +1,12 @@
 import 'dart:math';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:notes_app/pages/addnote.dart';
+import 'package:notes_app/pages/beyond_flutter.dart';
 import 'package:notes_app/pages/viewnote.dart';
+import 'package:notes_app/pages/weather.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -27,6 +28,42 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              Container(
+                height: 130,
+                child: const DrawerHeader(
+                  decoration: BoxDecoration(
+                    color: Colors.black87,
+                  ),
+                  child: Text('Beyond Universe'),
+                ),
+              ),
+              ListTile(
+                title: const Text('Page Beyond Flutter'),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => BeyondPage(),
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                title: const Text('Basic Weather Page'),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => Weather(),
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator.of(context)
